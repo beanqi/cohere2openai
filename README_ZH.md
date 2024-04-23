@@ -4,9 +4,9 @@
 # 如何使用
 
 1. 在 Cloudflare 中创建一个新的 Worker。
-2. 将 worker.js 中的代码复制到 Worker 中。
+2. 将` worker.js` 中的代码复制到 Worker 中。
 3. 在 Worker 中设置环境变量：
-4. API_AUTH_TOKEN：您的 Cohere API 密钥。
+   - `API_AUTH_TOKEN`： Cohere API 密钥。
 5. 部署 Worker。
 6. 使用 Worker URL 作为 API 端点。
 7. （可选）如有需要，为 Worker 绑定自定义域名。
