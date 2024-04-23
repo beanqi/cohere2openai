@@ -26,6 +26,9 @@ async function handleRequest(req) {
     };
   }
 
+  // delete frequency_penalty from body, cohere ai requires either frequency_penalty or presence_penalty, not both.
+  delete body.frequency_penalty;
+
   const data = { chat_history: [] };
   try {
     for (let i = 0; i < body.messages.length - 1; i++) {
@@ -46,7 +49,7 @@ async function handleRequest(req) {
   }
   if (/^(net-)?command/.test(body.model)) data.model = body.model.replace(/^net-/, "");
   if (!data.model) data.model = "command-r";
-  data.model = "command-r-plus"; // force to use command-r-plus， you can change it to other models
+  data.model = "command-r-plus"; // force to use command-r-plus， you can annotate this line if you want to use the default model.
 
   const resp = await fetch('https://api.cohere.ai/v1/chat', {
     method: "POST",
