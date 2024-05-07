@@ -1,5 +1,6 @@
 # cohere2openai
 A cloudflare worker to covert cohere api to openai api
+[中文文档](./README_ZH.md)
 
 # How to use
 
