@@ -13,7 +13,12 @@ async function handleRequest(req) {
 
   let body = {};
   try {
-    body = await req.json();
+    reqBody = await req.json();
+    body['messages'] = reqBody['messages'];
+    body['model'] = reqBody['model'];
+    body['temperature'] = reqBody['temperature'];
+    body['max_tokens'] = reqBody['max_tokens'];
+    body['stream'] = reqBody['stream'];
   } catch (e) {
     body = {
       "messages": [{ "role": "user", "content": searchParams.get('q') || "hello" }],
